@@ -1,5 +1,7 @@
 # share
 支持QQ、微信、小程序的分享，可一键调用
+
+# 划重点:请记得配置各平台的AppID。
  
 # 使用方式：
       
@@ -113,8 +115,6 @@
 
          3.图片logo
             这里采用了Glide的图片下载功能，具体封装在了BaseShareHelperImageGetter中，所以本库采用compile方式集成了Glide的库，如有需要，开发者不需要再另外导入了
-
-# 特别说明:目前状态为可以唤起微信或QQ，但无法分享，需要配置各平台的AppID。
 
 # 混淆：
         -keep class com.eagersoft.youzy.youzy.share.bean.**{*;}
