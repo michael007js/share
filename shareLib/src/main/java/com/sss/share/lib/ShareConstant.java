@@ -18,9 +18,9 @@ public class ShareConstant {
     public static final int SHARE_WAY_WEBPAGE = 3;  //链接
     public static final int SHARE_WAY_MEDIA = 4; //媒体
     public static final int SHARE_WAY_MINI_PROGRAM = 5; //小程序 TODO（注意：如果选中该类型，则不会有文字图片链接媒体的区分！）
-    public static final int WECHAT_SHARE_TYPE_SESSION = SendMessageToWX.Req.WXSceneSession;  //微信会话
-    public static final int WECHAT_SHARE_TYPE_FRENDS_GROUP = SendMessageToWX.Req.WXSceneTimeline; //微信朋友圈
-    public static final int WECHAT_SHARE_TYPE_FAVORITE = SendMessageToWX.Req.WXSceneFavorite;  //微信收藏
-    public static final int QQ_SHARE_TYPE_SESSION = 6;//QQ会话
-    public static final int QQ_SHARE_TYPE_QZONE = 7;//QQ空间
+    public static final int SHARE_TYPE_WECHAT_SESSION = SendMessageToWX.Req.WXSceneSession;  //微信会话
+    public static final int SHARE_TYPE_WECHAT_FRENDS_GROUP = SendMessageToWX.Req.WXSceneTimeline; //微信朋友圈
+    public static final int SHARE_TYPE_WECHAT_FAVORITE = SendMessageToWX.Req.WXSceneFavorite;  //微信收藏
+    public static final int SHARE_TYPE_QQ_SESSION = 6;//QQ会话
+    public static final int SHARE_TYPE_QQ_QZONE = 7;//QQ空间
 }

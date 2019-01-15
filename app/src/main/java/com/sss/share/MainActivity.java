@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
      * QQ分享
      */
     public void qq(View view) {
-        ShareHelper.getInstance().shareByQQ(this, new ShareContentWebpage("标题", "介绍", url, imageUrl, R.mipmap.ic_launcher), ShareConstant.QQ_SHARE_TYPE_SESSION, new OnShareHelperListener() {
+        ShareHelper.getInstance().shareByQQ(this, new ShareContentWebpage("标题", "介绍", url, imageUrl, R.mipmap.ic_launcher), ShareConstant.SHARE_TYPE_QQ_SESSION, new OnShareHelperListener() {
             @Override
             public void onStart() {
 
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
      * 空间分享
      */
     public void qzone(View view) {
-        ShareHelper.getInstance().shareByQQ(this, new ShareContentWebpage("标题", "介绍", url, imageUrl, R.mipmap.ic_launcher), ShareConstant.QQ_SHARE_TYPE_QZONE, new OnShareHelperListener() {
+        ShareHelper.getInstance().shareByQQ(this, new ShareContentWebpage("标题", "介绍", url, imageUrl, R.mipmap.ic_launcher), ShareConstant.SHARE_TYPE_QQ_QZONE, new OnShareHelperListener() {
             @Override
             public void onStart() {
 
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
      * 微信分享
      */
     public void weixin(View view) {
-        ShareHelper.getInstance().shareByWeChat(this, new ShareContentWebpage("标题", "介绍", url, imageUrl, R.mipmap.ic_launcher), ShareConstant.WECHAT_SHARE_TYPE_SESSION, new OnShareHelperListener() {
+        ShareHelper.getInstance().shareByWeChat(this, new ShareContentWebpage("标题", "介绍", url, imageUrl, R.mipmap.ic_launcher), ShareConstant.SHARE_TYPE_WECHAT_SESSION, new OnShareHelperListener() {
             @Override
             public void onStart() {
 
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
      * 微信收藏
      */
     public void favorites(View view) {
-        ShareHelper.getInstance().shareByWeChat(this, new ShareContentWebpage("标题", "介绍", url, imageUrl, R.mipmap.ic_launcher), ShareConstant.WECHAT_SHARE_TYPE_FAVORITE, new OnShareHelperListener() {
+        ShareHelper.getInstance().shareByWeChat(this, new ShareContentWebpage("标题", "介绍", url, imageUrl, R.mipmap.ic_launcher), ShareConstant.SHARE_TYPE_WECHAT_FAVORITE, new OnShareHelperListener() {
             @Override
             public void onStart() {
 
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
      * 朋友圈分享
      */
     public void friendGroup(View view) {
-        ShareHelper.getInstance().shareByWeChat(this, new ShareContentWebpage("标题", "介绍", url, imageUrl, R.mipmap.ic_launcher), ShareConstant.WECHAT_SHARE_TYPE_FRENDS_GROUP, new OnShareHelperListener() {
+        ShareHelper.getInstance().shareByWeChat(this, new ShareContentWebpage("标题", "介绍", url, imageUrl, R.mipmap.ic_launcher), ShareConstant.SHARE_TYPE_WECHAT_FRENDS_GROUP, new OnShareHelperListener() {
             @Override
             public void onStart() {
 
@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
      * 小程序分享
      */
     public void miniProgram(View view) {
-        ShareHelper.getInstance().shareByMiniProgram(this, new ShareContentMiniProgram("标题", "介绍","可空，不起作用",imageUrl,"小程序页面地址，需要与小程序的程序猿沟通一下",R.mipmap.ic_launcher), ShareConstant.WECHAT_SHARE_TYPE_SESSION, new OnShareHelperListener() {
+        ShareHelper.getInstance().shareByMiniProgram(this, new ShareContentMiniProgram("标题", "介绍","兼容低版本的网页链接",imageUrl,"小程序页面地址，需要与小程序的程序猿沟通一下",R.mipmap.ic_launcher), ShareConstant.SHARE_TYPE_WECHAT_SESSION, new OnShareHelperListener() {
             @Override
             public void onStart() {
 

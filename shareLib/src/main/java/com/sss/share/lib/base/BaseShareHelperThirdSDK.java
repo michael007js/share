@@ -218,7 +218,7 @@ public class BaseShareHelperThirdSDK extends BaseShareHelperImageGetter {
     private void shareTextQQ(Activity activity, BaseShareContent shareContent, int shareType) {
         Bundle params = new Bundle();
         switch (shareType) {
-            case ShareConstant.QQ_SHARE_TYPE_SESSION:
+            case ShareConstant.SHARE_TYPE_QQ_SESSION:
                 params.putInt(QQShare.SHARE_TO_QQ_KEY_TYPE, QQShare.SHARE_TO_QQ_TYPE_DEFAULT);
                 params.putString(QQShare.SHARE_TO_QQ_TITLE, shareContent.getTitle());// 标题
                 params.putString(QQShare.SHARE_TO_QQ_SUMMARY, shareContent.getContent());// 摘要
@@ -227,7 +227,7 @@ public class BaseShareHelperThirdSDK extends BaseShareHelperImageGetter {
                 params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL, shareContent.getPictureResource());// 网络图片地址
                 params.putInt(QQShare.SHARE_TO_QQ_EXT_INT, 0);//1是qq空间，0是好友
                 break;
-            case ShareConstant.QQ_SHARE_TYPE_QZONE:
+            case ShareConstant.SHARE_TYPE_QQ_QZONE:
                 params.putInt(QzoneShare.SHARE_TO_QZONE_KEY_TYPE, QzoneShare.SHARE_TO_QZONE_TYPE_IMAGE_TEXT);
                 params.putString(QzoneShare.SHARE_TO_QQ_TITLE, shareContent.getTitle());// 标题
                 params.putString(QzoneShare.SHARE_TO_QQ_SUMMARY, shareContent.getContent());// 摘要
@@ -247,13 +247,13 @@ public class BaseShareHelperThirdSDK extends BaseShareHelperImageGetter {
     private void sharePictureQQ(Activity activity, BaseShareContent shareContent, int shareType) {
         Bundle params = new Bundle();
         switch (shareType) {
-            case ShareConstant.QQ_SHARE_TYPE_SESSION:
+            case ShareConstant.SHARE_TYPE_QQ_SESSION:
                 params = new Bundle();
                 params.putInt(QQShare.SHARE_TO_QQ_KEY_TYPE, QQShare.SHARE_TO_QQ_TYPE_IMAGE);// 设置分享类型为纯图片分享
                 params.putString(QQShare.SHARE_TO_QQ_IMAGE_LOCAL_URL, shareContent.getPictureResource());// 需要分享的本地图片URL
                 params.putInt(QQShare.SHARE_TO_QQ_EXT_INT, 0);//1是qq空间，0是好友
                 break;
-            case ShareConstant.QQ_SHARE_TYPE_QZONE:
+            case ShareConstant.SHARE_TYPE_QQ_QZONE:
                 ArrayList<String> imgUrlList = new ArrayList<>();
                 imgUrlList.add(shareContent.getPictureResource());
                 params = new Bundle();
@@ -274,7 +274,7 @@ public class BaseShareHelperThirdSDK extends BaseShareHelperImageGetter {
         Bundle params = new Bundle();
         ArrayList<String> imageUrls = new ArrayList<>();
         switch (shareType) {
-            case ShareConstant.QQ_SHARE_TYPE_SESSION:
+            case ShareConstant.SHARE_TYPE_QQ_SESSION:
                 params.putInt(QQShare.SHARE_TO_QQ_KEY_TYPE, QQShare.SHARE_TO_QQ_TYPE_DEFAULT);//分享的类型
                 params.putString(QQShare.SHARE_TO_QQ_TITLE, shareContent.getTitle());//分享标题
                 params.putString(QQShare.SHARE_TO_QQ_SUMMARY, shareContent.getContent());//要分享的内容摘要
@@ -285,7 +285,7 @@ public class BaseShareHelperThirdSDK extends BaseShareHelperImageGetter {
                 imageUrls.add(shareContent.getPictureResource());//添加一个图片地址
                 params.putStringArrayList(QzoneShare.SHARE_TO_QQ_IMAGE_URL, imageUrls);//分享的图片URL
                 break;
-            case ShareConstant.QQ_SHARE_TYPE_QZONE:
+            case ShareConstant.SHARE_TYPE_QQ_QZONE:
                 params.putInt(QzoneShare.SHARE_TO_QZONE_KEY_TYPE, QzoneShare.SHARE_TO_QZONE_TYPE_NO_TYPE);//分享的类型
                 params.putString(QzoneShare.SHARE_TO_QQ_TITLE, shareContent.getTitle());//分享标题
                 params.putString(QQShare.SHARE_TO_QQ_APP_NAME, ShareUtil.getAppName(activity));//应用名称
@@ -307,7 +307,7 @@ public class BaseShareHelperThirdSDK extends BaseShareHelperImageGetter {
         Bundle params = new Bundle();
         ArrayList<String> imageUrls = new ArrayList<>();
         switch (shareType) {
-            case ShareConstant.QQ_SHARE_TYPE_SESSION:
+            case ShareConstant.SHARE_TYPE_QQ_SESSION:
                 params.putInt(QQShare.SHARE_TO_QQ_KEY_TYPE, QQShare.SHARE_TO_QQ_TYPE_DEFAULT);//分享的类型
                 params.putString(QQShare.SHARE_TO_QQ_TITLE, shareContent.getTitle());//分享标题
                 params.putString(QQShare.SHARE_TO_QQ_SUMMARY, shareContent.getContent());//要分享的内容摘要
@@ -318,7 +318,7 @@ public class BaseShareHelperThirdSDK extends BaseShareHelperImageGetter {
                 params.putStringArrayList(QzoneShare.SHARE_TO_QQ_IMAGE_URL, imageUrls);//分享的图片URL
                 params.putInt(QQShare.SHARE_TO_QQ_EXT_INT, 0);//1是qq空间，0是好友
                 break;
-            case ShareConstant.QQ_SHARE_TYPE_QZONE:
+            case ShareConstant.SHARE_TYPE_QQ_QZONE:
                 params.putInt(QzoneShare.SHARE_TO_QZONE_KEY_TYPE, QzonePublish.PUBLISH_TO_QZONE_TYPE_PUBLISHVIDEO);//分享的类型
                 params.putString(QzoneShare.SHARE_TO_QQ_TITLE, shareContent.getTitle());//分享标题
                 params.putString(QQShare.SHARE_TO_QQ_AUDIO_URL, shareContent.getURL());//媒体地址
@@ -435,7 +435,7 @@ public class BaseShareHelperThirdSDK extends BaseShareHelperImageGetter {
     private void shareToMiniProgram(Activity activity, BaseShareContent shareContent, int shareType, File file) {
         Bitmap bitmap = file == null ? ShareUtil.getThumbnail(null, activity, shareContent.getDefaultPictureResource()) : ShareUtil.decodeSampledBitmapFromFile(file.getAbsolutePath(), ShareConstant.THUMB_SIZE, ShareConstant.THUMB_SIZE);
         WXMiniProgramObject miniProgramObj = new WXMiniProgramObject();
-        miniProgramObj.webpageUrl = "https://m.youzy.cn";                             // 兼容低版本的网页链接
+        miniProgramObj.webpageUrl = shareContent.getURL();                             // 兼容低版本的网页链接
         miniProgramObj.miniprogramType = WXMiniProgramObject.MINIPTOGRAM_TYPE_RELEASE;// 正式版:0，测试版:1，体验版:2
         miniProgramObj.userName = miniProgramId;                                      // 小程序原始id,在微信平台查询
         miniProgramObj.path = shareContent.miniProgramPagePath();                     //小程序页面路径
