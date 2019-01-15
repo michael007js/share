@@ -58,7 +58,7 @@
                  * @param title 标题
                  * @param url 分享的地址
                  * @param logo logo
-                 * @param shareType 分享类型 见ShareConstant中WECHAT_SHARE_开头和QQ_SHARE_TYPE_开头的静态常量
+                 * @param shareType 分享类型 见ShareConstant中SHARE_TYPE_开头的静态常量
                  */
                 public void share(String introduce,String title,String url, String logo,int shareType) {
                     ShareHelper.getInstance().shareByWeChat(ShareActivity.this, new ShareContentWebpage(introduce, title, url, logo), shareType, new OnShareHelperListener() {
